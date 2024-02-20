@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Contacts Edit</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.0xkuj.contactsextendedprefs.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.0xkuj.contactsextendedprefs</string>
+			<key>key</key>
+			<string>isContactsEditAllowed</string>
+			<key>label</key>
+			<string>Enable Contacts Edit</string>
+			<key>nestedEntryCount</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Set which edit options will appear in contacts screen</string>
+			<key>label</key>
+			<string>OPTIONS</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.0xkuj.contactsextendedprefs.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.0xkuj.contactsextendedprefs</string>
+			<key>key</key>
+			<string>isDeleteAll</string>
+			<key>label</key>
+			<string>Allow Delete All</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.0xkuj.contactsextendedprefs.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.0xkuj.contactsextendedprefs</string>
+			<key>key</key>
+			<string>isConfirmDelete</string>
+			<key>label</key>
+			<string>Contact Delete Confirmation</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Contacts Edit</string>
+</dict>
+</plist>

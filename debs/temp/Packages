@@ -1,0 +1,18 @@
+Package: com.pwnd2e.contactsextended
+Version: 1.9.1
+Architecture: iphoneos-arm64
+Maintainer: pwnd2e
+Installed-Size: 520
+Depends: firmware (>= 14), xyz.cypwn.xinam1ne
+Conflicts: com.packetfahrer.swipetodeletecontact, org.thebigboss.elite
+Filename: ./com.pwnd2e.contactsextended.deb
+Size: 71092
+MD5sum: 1bb2fba72d82a2044d72ec910880c393
+SHA1: 21df1145d990a80a2a77b113e30b9e5dc95404f5
+SHA256: 540db9eb699af60ff83260228427390deb4f239f80f6bb2c357f66bd95897986
+Section: Tweaks
+Description: Your contacts - with more options!
+Author: 0xkuj
+Icon: https://media.havoc.app/620c674e7669e842d27da3ec?w=1920&q=75
+Name: Contacts Extended
+

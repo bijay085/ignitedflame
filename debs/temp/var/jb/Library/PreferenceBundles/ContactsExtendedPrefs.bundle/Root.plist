@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Contacts Extended</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.0xkuj.contactsextendedprefs.settingschanged</string>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.0xkuj.contactsextendedprefs</string>
+			<key>key</key>
+			<string>isTweakEnabled</string>
+			<key>label</key>
+			<string>Enable Tweak</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSStaticTextCell</string>
+			<key>label</key>
+			<string>Country Prefix (e.g UK: 44)</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.0xkuj.contactsextendedprefs.settingschanged</string>
+			<key>cell</key>
+			<string>PSEditTextCell</string>
+			<key>defaults</key>
+			<string>com.0xkuj.contactsextendedprefs</string>
+			<key>isNumeric</key>
+			<true/>
+			<key>key</key>
+			<string>countryPrefix</string>
+			<key>placeholder</key>
+			<string>No Need for '+' sign Country Code</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Set Your Tweak Settings</string>
+			<key>label</key>
+			<string>TWEAK SETTINGS</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>defaults</key>
+			<string>com.0xkuj.contactsextendedprefs</string>
+			<key>detail</key>
+			<string>CTXContactsEditListController</string>
+			<key>label</key>
+			<string>Contacts Edit</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>defaults</key>
+			<string>com.0xkuj.contactsextendedprefs</string>
+			<key>detail</key>
+			<string>CTXSwipeListController</string>
+			<key>label</key>
+			<string>Contacts Swipe Actions</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>defaults</key>
+			<string>com.0xkuj.contactsextendedprefs</string>
+			<key>detail</key>
+			<string>CTXRecentCallsOptionsController</string>
+			<key>label</key>
+			<string>Recent Calls Options</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Restore to default settings - will restore your tweak preferences back to first-time configuration</string>
+			<key>label</key>
+			<string>MISCELLANEOUS</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>defaultsettings:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>respring.png</string>
+			<key>label</key>
+			<string>Restore to default settings</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>respring:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>respring.png</string>
+			<key>label</key>
+			<string>Respring</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>ABOUT ME</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>donationLink</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>donate.png</string>
+			<key>label</key>
+			<string>Buy me a beer ;)</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>openTwitter</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>icon</key>
+			<string>Twitter.png</string>
+			<key>label</key>
+			<string>Follow me on Twitter</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Made by: 0xkuj | v1.9.1 (root)</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>ContactsExtended</string>
+</dict>
+</plist>
