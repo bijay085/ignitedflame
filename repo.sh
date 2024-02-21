@@ -8,12 +8,15 @@ dpkg-scanpackages -m debs > Packages
 
 # Compress Packages file using bzip2
 bzip2 -k Packages
+echo "Packages.bz2 created"
 
 # Compress Packages file using gzip
 gzip -k Packages
+echo "Packages.gz created"
 
 # Compress Packages file using zstd with explicit compression level
 zstd -19 Packages -o Packages.zst
+echo "Packages.zst created"
 
 # Copy Base to Release
 cp Base Release
