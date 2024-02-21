@@ -12,8 +12,8 @@ bzip2 -k Packages
 # Compress Packages file using gzip
 gzip -k Packages
 
-# Compress Packages file using zstd
-zstd -19 Packages
+# Compress Packages file using zstd with explicit compression level
+zstd -19 Packages -o Packages.zst
 
 # Copy Base to Release
 cp Base Release
