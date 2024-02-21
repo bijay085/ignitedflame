@@ -8,15 +8,12 @@ dpkg-scanpackages -m debs > Packages
 
 # Compress Packages file using bzip2
 bzip2 -k Packages
-echo "Packages.bz2 created"
 
 # Compress Packages file using gzip
 gzip -k Packages
-echo "Packages.gz created"
 
 # Compress Packages file using zstd with explicit compression level
 zstd -19 Packages -o Packages.zst
-echo "Packages.zst created"
 
 # Copy Base to Release
 cp Base Release
@@ -24,27 +21,22 @@ cp Base Release
 # Function to calculate checksums
 calculate_checksums() {
     local file="$1"
-    local size=$(ls -l "$file" | awk '{print $5}')
-    local md5=$(md5sum "$file" | awk '{print $1}')
-    local sha256=$(sha256sum "$file" | awk '{print $1}')
-    echo "$md5 $size $sha256"
-}
-
-# Process each .deb file in the debs directory
-for deb_file in debs/*.deb; do
-    echo "Processing $deb_file"
+    local size_and_name=$(ls -l "$file" | awk '{print $5,$9}')
     
-    # Try to extract metadata from the .deb file
-    if dpkg-deb -I "$deb_file" &>/dev/null; then
-        # If successful, add the package to Packages file
-        dpkg-deb -f "$deb_file" Package >> Packages
-        echo "  Added $deb_file to Packages"
+    local md5_command="md5sum"
+    if command -v md5sum > /dev/null; then
+        md5_command="md5sum"
+    elif command -v md5 > /dev/null; then
+        md5_command="md5"
     else
-        # If failed, skip this file
-        echo "  Failed to process $deb_file. Skipping."
-        continue
+        echo "Error: Neither md5sum nor md5 found. Cannot calculate checksums."
+        exit 1
     fi
-done
+
+    local md5=$($md5_command "$file" | awk '{print $1}')
+    local sha256=$(sha256sum "$file" | awk '{print $1}')
+    echo "$md5 $size_and_name $sha256"
+}
 
 # Calculate checksums for Packages files
 packages_checksums=$(calculate_checksums "Packages")
