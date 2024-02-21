@@ -1,26 +1,26 @@
-Package: com.ignitedflame.contactsextended.rootfull
+Package: com.ignitedflame.contactsextended
 Section: Tweaks
 Installed-Size: 520
-Maintainer: lucifer
+Maintainer: ignitedflame <lucifer00116@gmail.com>
 Architecture: iphoneos-arm
 Version: 1.9.1
 Depends: firmware (>= 14)
 Conflicts: com.packetfahrer.swipetodeletecontact, org.thebigboss.elite
 Description: Your contacts - with extended direct messaging features (message, whatsapp, telegram) .
-Name: Contacts Extended Rootfull
+Name: Contacts Extended
 Author: 0xkuj
 Icon: https://media.havoc.app/620c674e7669e842d27da3ec?w=1920&q=75
 
-Package: com.ignitedflame.contactsextended.rootless
+Package: com.ignitedflame.contactsextended
 Section: Tweaks
 Installed-Size: 520
-Maintainer: ignitedflame
+Maintainer: ignitedflame <lucifer00116@gmail.com>
 Architecture: iphoneos-arm64
 Version: 1.9.1
 Depends: firmware (>= 14), xyz.cypwn.xinam1ne
 Conflicts: com.packetfahrer.swipetodeletecontact, org.thebigboss.elite
 Description: Your contacts - with extended direct messaging features (message, whatsapp, telegram) .
-Name: Contacts Extended Rootless
+Name: Contacts Extended
 Author: 0xkuj
 Icon: https://media.havoc.app/620c674e7669e842d27da3ec?w=1920&q=75
 
