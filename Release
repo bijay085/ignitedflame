@@ -6,15 +6,8 @@ Codename: if
 Architectures: iphoneos-arm iphoneos-arm64
 Components: main
 Description: My repo for jailbreak tweaks.
-MD5Sum:
-   
-SHA256:
-   
-MD5Sum:
-   
-SHA256:
-   
-MD5Sum:
-   
-SHA256:
-   
+SHA512:
+ 41e9fccee1718b1bf6db672b0879ab293b5fb5cd07dc07915d8f571ac35867c4aec3a5a37bbb17babbfd1d0325ababa1ac5d0a8ca79e6c55347ac985dd832586 1975 Packages
+ d83cabba37a56595d041b465845d3a4b1a3227562ac7c0ed0bd87168de185fa5f3c68b1730cf375d3b24c31dd96780315cce0aa16cc4a6b8c19a296240ddbf37 1002 Packages.bz2
+ a97364a18a648f3244626cfbb88cbd00aa6838ec66bed833f931c25dc5b8062f25112728d1939627cebe3cd29e9fb3b7a8ddee294c47ceba44758415d9a5cbf6 840 Packages.gz
+ 19be93230a59473708d7cc50fe4707bab5f720501974293452005bf75950fa594d5ce4649b3ff09cc3e997dcf3146dc60042563d2c38b83f4cf001815e44c680 822 Packages.zst
