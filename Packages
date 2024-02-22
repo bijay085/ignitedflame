@@ -5,7 +5,7 @@ Maintainer: ignitedflame <lucifer00116@gmail.com>
 Installed-Size: 520
 Depends: firmware (>= 14)
 Conflicts: com.packetfahrer.swipetodeletecontact, org.thebigboss.elite
-Filename: debs/com.ignitedflame.contactsextended_1.9.1_iphoneos-arm.deb
+Filename: debs/rootfull/com.ignitedflame.contactsextended_1.9.1_iphoneos-arm.deb
 Size: 71580
 MD5sum: 5e48181900867d38b430ab83f129bd26
 SHA1: c32a03eee2c730c736aa3b2366a0bc1184ffbf88
@@ -23,7 +23,7 @@ Maintainer: ignitedflame <lucifer00116@gmail.com>
 Installed-Size: 520
 Depends: firmware (>= 14), xyz.cypwn.xinam1ne
 Conflicts: com.packetfahrer.swipetodeletecontact, org.thebigboss.elite
-Filename: debs/com.ignitedflame.contactsextended_1.9.1_iphoneos-arm64.deb
+Filename: debs/rootless/com.ignitedflame.contactsextended_1.9.1_iphoneos-arm64.deb
 Size: 71276
 MD5sum: e7b26d1bad7d8d4cca9a8229bd44d2c1
 SHA1: b8aa033f14d43439afe299cfa333900687c9a060
@@ -40,7 +40,7 @@ Architecture: iphoneos-arm64
 Maintainer: ignitedflame
 Installed-Size: 1000
 Depends: com.opa334.altlist, preferenceloader
-Filename: debs/com.ignitedflame.primedeck_1.3.0_iphoneos-arm64.deb
+Filename: debs/rootless/com.ignitedflame.primedeck_1.3.0_iphoneos-arm64.deb
 Size: 539388
 MD5sum: 277b423427d483ef5ed194c1461b746c
 SHA1: 8977bf440da53c6d73a6fc5a535345cf11c47e70
@@ -48,7 +48,3 @@ SHA256: bf85e15765a7474e1b84f0f39ada666f03ad459e43c5d870f0b89d6f5c2eba65
 Section: Tweaks
 Description: Control your appswitcher
 Name: PrimeDeck
-
-com.ignitedflame.contactsextended
-com.ignitedflame.contactsextended
-com.ignitedflame.primedeck

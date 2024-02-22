@@ -1,36 +1,58 @@
 #!/bin/bash
 
 # Remove existing metadata files
-rm -rf Packages Packages.bz2 Packages.gz Packages.zst Release Release.bz2 Release.gz Release.zst
+rm -rf Packages Packages.* Release Release.*
 
-# Generate Packages file if it doesn't exist
+# Create Packages file if it doesn't exist
 if [ ! -e Packages ]; then
     dpkg-scanpackages -m debs > Packages
 fi
 
-# Compress Packages file using bzip2
-bzip2 -k Packages
-
-# Compress Packages file using gzip
-gzip -k Packages
-
-# Compress Packages file using zstd
-zstd -19 Packages
-
-# Copy Base to Release
-cp -r Base Release
+# Create Release file if it doesn't exist
+if [ ! -e Release ]; then
+    touch Release
+fi
 
 # Function to calculate checksums
 calculate_checksums() {
     local file="$1"
-    local size=$(ls -l "$file" | awk '{print $5}')
+    local size=$(stat -c %s "$file")
     local md5=$(md5sum "$file" | awk '{print $1}')
     local sha256=$(sha256sum "$file" | awk '{print $1}')
     echo "$md5 $size $sha256"
 }
 
+# Function to create compressed versions and calculate checksums
+calculate_and_append_checksums() {
+    local file="$1"
+    local compression="$2"
+    local compressed_file="$file.$compression"
+    local file_basename=$(basename "$compressed_file")
+    local checksums=$(calculate_checksums "$compressed_file")
+    
+    # Append checksums to Release file
+    echo "MD5Sum:" >> Release
+    echo " $checksums" >> Release
+    
+    echo "SHA256:" >> Release
+    echo " $checksums" >> Release
+    
+    # Compress the file
+    case "$compression" in
+        bz2)
+            bzip2 -k "$file"
+            ;;
+        gz)
+            gzip -k "$file"
+            ;;
+        zst)
+            zstd -19 "$file"
+            ;;
+    esac
+}
+
 # Process each .deb file in the debs directory
-for deb_file in debs/*.deb; do
+for deb_file in debs/*/*.deb; do
     echo "Processing $deb_file"
     
     # Try to extract metadata from the .deb file
@@ -45,70 +67,30 @@ for deb_file in debs/*.deb; do
     fi
 done
 
-# Calculate checksums for Packages files
-packages_checksums=$(calculate_checksums "Packages")
-packagesbz2_checksums=$(calculate_checksums "Packages.bz2")
-packagesgz_checksums=$(calculate_checksums "Packages.gz")
-packageszst_checksums=$(calculate_checksums "Packages.zst")
+# Create compressed versions of Packages file
+for compression in bz2 gz zst; do
+    calculate_and_append_checksums "Packages" "$compression"
+done
 
-# Append checksums to Release file
-echo "MD5Sum:" >> Release
-echo " $packages_checksums" >> Release
-echo " $packagesbz2_checksums" >> Release
-echo " $packagesgz_checksums" >> Release
-echo " $packageszst_checksums" >> Release
+# Copy Base to Release
+cp -r Base Release
 
-echo "SHA256:" >> Release
-echo " $packages_checksums" >> Release
-echo " $packagesbz2_checksums" >> Release
-echo " $packagesgz_checksums" >> Release
-echo " $packageszst_checksums" >> Release
-
-# Compress Packages.bz2 file
-bzip2 -k Packages
-
-# Compress Packages.zst file
-zstd -19 Packages
-
-# Calculate checksums for Packages.bz2 and Packages.zst files
-packagesbz2_checksums=$(calculate_checksums "Packages.bz2")
-packageszst_checksums=$(calculate_checksums "Packages.zst")
-
-# Append checksums to Release file
-echo "MD5Sum:" >> Release
-echo " $packagesbz2_checksums" >> Release
-echo " $packageszst_checksums" >> Release
-
-echo "SHA256:" >> Release
-echo " $packagesbz2_checksums" >> Release
-echo " $packageszst_checksums" >> Release
-
-# Compress Release file using bzip2
-bzip2 -k Release
-
-# Compress Release file using gzip
-gzip -k Release
-
-# Compress Release file using zstd
-zstd -19 Release
-
-# Calculate checksums for Release files
-release_checksums=$(calculate_checksums "Release")
-releasebz2_checksums=$(calculate_checksums "Release.bz2")
-releasegz_checksums=$(calculate_checksums "Release.gz")
-releasezst_checksums=$(calculate_checksums "Release.zst")
-
-# Append checksums to Release file
-echo "MD5Sum:" >> Release
-echo " $release_checksums" >> Release
-echo " $releasebz2_checksums" >> Release
-echo " $releasegz_checksums" >> Release
-echo " $releasezst_checksums" >> Release
-
-echo "SHA256:" >> Release
-echo " $release_checksums" >> Release
-echo " $releasebz2_checksums" >> Release
-echo " $releasegz_checksums" >> Release
-echo " $releasezst_checksums" >> Release
+# Create compressed versions of Release file
+for compression in bz2 gz zst; do
+    calculate_and_append_checksums "Release" "$compression"
+done
 
 echo "Done"
+
+# Display all checksums
+echo "MD5Sum for Packages, Packages.bz2, Packages.gz, Packages.zst:"
+md5sum Packages*
+echo "SHA256 for Packages, Packages.bz2, Packages.gz, Packages.zst:"
+sha256sum Packages*
+
+echo "MD5Sum for Release, Release.bz2, Release.gz, Release.zst:"
+md5sum Release*
+echo "SHA256 for Release, Release.bz2, Release.gz, Release.zst:"
+sha256sum Release*
+
+echo "All checksums calculated and displayed."
